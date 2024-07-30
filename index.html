@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Lexend Deca' rel='stylesheet'>
+    </head>
+    <style>
+        body {
+            background-color: #f8fbf8;
+            padding: 20px;
+            font-family: 'Lexend Deca', serif;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+        }
+        h1 {
+            font-size: 42px;
+            margin: 0;
+            color: #333;
+        }
+        h2 {
+            font-size: 36px;
+            margin: 0;
+            color: #333;
+        }
+        h3 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #323030;
+        }
+        td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+
+
+    </style>
+
+    </style>
+    <body>
+        <h1>The Concatenator - Supplementary Material</h1>
+        <h3><a href = "http://www.ctralie.com/">Christopher J. Tralie</a>, <a href = "https://encanti.com/">Ben Cantil</a></h3>
+        <p>
+            <b>The Concatenator</b> mashes up a corpus to match a target audio stream in real time using a particle filter with <b>P</b> particles.  A particle captures <b>p</b> corpus activations, each of which moves forward by 1 step in time with probability <b>p<SUB>d</SUB></b>, or otherwise jumps to a random corpus position. Particle weights update based on how their activations fit incoming audio.
+        </p>
+
+        <img src = "BlockDgm.svg" width="90%">
+
+        <HR>
+        <h2>Code / Demo Video</h2>
+            <p>
+                <!--<strike><b>Click here</b> to download our python prototype, which includes a real time option!  Have a look at the <code>Readme.md</code> file for dependencies and instructions for use.</strike>!-->
+                <b>Code coming soon...</b>
+            </p>
+            <p>
+                Below is a video showing the potential of our plugin to be used real time "in concert" (pun intended) with Ableton Live (<a href = "Concatenator-Demo.mp4">Click here</a> to download the video file).
+            </p>
+            <video width="70%" controls>
+                <source src="Concatenator-Demo.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+            </video> 
+
+        <HR>
+        <h2>Qualitative Analysis</h2>
+        <p>
+            Below are some of the corpus/target matrices we created for our qualitative analysis (corpora displayed on rows, targets displayed on columns).  All results are presented at 44.1khz stereo.  Every result was generated using <b>P=1000</b> particles, <b>p=5</b> activations per particle, <b>&tau;=10</b>, and <b>p<SUB>d</SUB>=0.95</b>.  With this number of particles, all of these examples run at real time or faster on commodity hardware.
+        </p>
+        <h3>winLength = 2048</h3>
+        <ul>
+            <li>
+                <a href = "P1000_p5_temp10_pd0.95_win2048/inTheWild.html">Targets in the wild</a>
+            </li>
+            <li>
+                <a href = "P1000_p5_temp10_pd0.95_win2048/syntheticTunes.html">Targets tunes that we synthesized</a>
+            </li>
+        </ul>
+        <h3>winLength = 4096</h3>
+        <ul>
+            <li>
+                <a href = "P1000_p5_temp10_pd0.95_win4096/inTheWild.html">Targets in the wild</a>
+            </li>
+            <li>
+                <a href = "P1000_p5_temp10_pd0.95_win4096/syntheticTunes.html">Targets tunes that we synthesized</a>
+            </li>
+        </ul>
+        <p>
+            Note that a 4096 window has a better frequency resolution, which is particularly noticeable at lower pitches.  But it may also miss some transients using the same parameters as above.
+        </p>
+
+        <h3>Our Favorites</h3>
+        <p>
+            Below we highlight some of our favorite examples
+        </p>
+        <table>
+            <tr>
+                <th>Corpus</th>
+                <th>Target</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>Beethoven - Symphony No. 5 in C Minor</p>
+                    <iframe width="100" height="50" src="https://www.youtube.com/embed/4aAne1Ol7R0?si=WAjH4HdQhiTu3IGX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </td>
+                <td>
+                    <p>Beatles_LetItBe</p><audio controls><source src="Targets/Beatles_LetItBe.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Beethoven - Symphony No. 5 in C Minor, Op. 67_ I. Allegro con brio.m4a_Beatles_LetItBe.mp3.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Beethoven - Symphony No. 5 in C Minor, Op. 67_ I. Allegro con brio.m4a_Beatles_LetItBe.mp3.m4a"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href = "https://theremin.music.uiowa.edu/">1.6 hours of woodwinds</a></p>
+                </td>
+                <td>
+                    <p>Beatles_LetItBe</p><audio controls><source src="Targets/Beatles_LetItBe.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Woodwinds_Beatles_LetItBe.mp3.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Woodwinds_Beatles_LetItBe.mp3.m4a"></audio>
+                    <p>
+                        Notice how a window of 4096 does better with the bassoon due to increased frequency resolution
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href = "https://theremin.music.uiowa.edu/">1.6 hours of woodwinds</a></p>
+                </td>
+                <td>
+                    <p>Ripple Contiuum - filt saw - 3 octaves</p><audio controls><source src="Targets/Ripple Continuum/Ripple Contiuum - filt saw - 3 octaves.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Woodwinds_Ripple Contiuum - filt saw - 3 octaves.wav.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Woodwinds_Ripple Contiuum - filt saw - 3 octaves.wav.m4a"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href = "https://mrbillstunes.com/">Mr. Bill</a>-Spectra Sample Pack Excerpt</p>
+                </td>
+                <td>
+                    <p>
+                        Drums Bass Test
+                    </p>
+                    <audio controls><source src="Targets/Drums Bass Test.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Mr. Bill - Spectra Sample Pack Excerpt_Drums Bass Test.wav.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Mr. Bill - Spectra Sample Pack Excerpt_Drums Bass Test.wav.m4a"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Vocals</p>
+                </td>
+                <td>
+                    <p>
+                        Pink noise sweep
+                    </p>
+                    <audio controls><source src="Targets/Pink Noise Sweet Test.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Vocals_Pink Noise Sweet Test.wav.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Vocals_Pink Noise Sweet Test.wav.m4a"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Percussive</p>
+                </td>
+                <td>
+                    <p>Beatbox Test</p><audio controls><source src="Targets/Beatbox Test.m4a"></audio>
+                </td>
+                <td>
+                    <p><code>win=2048</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win2048/Percussive_Beatbox Test.wav.m4a"></audio>
+                    <p><code>win=4096</code></p>
+                    <audio controls><source src="P1000_p5_temp10_pd0.95_win4096/Percussive_Beatbox Test.wav.m4a"></audio>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>
