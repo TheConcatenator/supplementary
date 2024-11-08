@@ -50,37 +50,87 @@
             color: white;
         }
 
+        /* unvisited link */
+        a:link {
+        color: rgb(13, 108, 43);
+        }
+
+        /* visited link */
+        a:visited {
+        color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+        color: rgb(13, 108, 43);
+        }
+
+        /* selected link */
+        a:active {
+        color: blue;
+        }
 
 
     </style>
 
     </style>
     <body>
-        <h1>The Concatenator - Supplementary Material</h1>
+        <h1>The Concatenator</h1>
         <h3><a href = "http://www.ctralie.com/">Christopher J. Tralie</a>, <a href = "https://encanti.com/">Ben Cantil</a></h3>
-        <p></p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/koGyq4komXo?si=cQmGmlruyS-ASsRu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
         <p>
-            <b>The Concatenator</b> mashes up a corpus to match a target audio stream in real time using a particle filter with <b>P</b> particles.  A particle captures <b>p</b> corpus activations, each of which moves forward by 1 step in time with probability <b>p<SUB>d</SUB></b>, or otherwise jumps to a random corpus position. Particle weights update based on how their activations fit incoming audio.
+            <b>The Concatenator</b> samples sound grains from a corpus to match a target audio stream in real time using a particle filter.  Like Driedger's <a href = "https://www.audiolabs-erlangen.de/resources/MIR/2015-ISMIR-LetItBee">Let It Bee</a> technique, The Concatenator preserves the timbre of the corpus, while matching the pitch and rhythm of the target.  Keep scrolling for videos and examples!
         </p>
 
-        <img src = "BlockDgm.svg" width="90%">
+        <iframe width="100%" height="80%" src="https://www.youtube.com/embed/koGyq4komXo?si=cQmGmlruyS-ASsRu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
         <HR>
-        <h2>Code / Demo Video</h2>
+        <h2>Paper</h2>
+        <P>
+            <a href = "https://arxiv.org/pdf/2411.04366">Click here</a> to download our paper on this, which is part of the proceedings of <a href = "https://ismir2024.ismir.net/">ISMIR 2024</a>.  If you use this in your work, please cite as follows:
+        </P>
+
+
+<p>
+    <code>
+        Christopher J. Tralie and Ben Cantil. ``The concatenator: A bayesian approach to real time concatenative musaicing.'' In Proceedings of the 25th Conference of the International Society for Music Information Retrieval (ISMIR 2024).
+        </code>
+</p>
+
+
+
+        <HR>
+            <h2>Code</h2>
             <p>
                 <a href = "https://github.com/ctralie/TheConcatenator">Click here</a> to download our python prototype, which includes a real time option!  Have a look at the <code>Readme.md</code> file for dependencies and instructions for use.
             </p>
+
+        <HR>
+        <h2><a href = "poster.pdf">Poster</a></h2>
+
+        <a href = "poster.pdf"><img src = "poster_teaser.png"></a>
+
+
+
+        <HR>
+        <h2>Demo Videos</h2>
+
             <p>
                 Below is a video showing the potential of our plugin to be used real time "in concert" (pun intended) with Ableton Live (<a href = "Concatenator-Demo.mp4">Click here</a> to download the video file).
             </p>
-            <video width="70%" controls>
+            <video width="80%" controls>
                 <source src="Concatenator-Demo.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
               Your browser does not support the video tag.
             </video> 
+
+            <p>
+                We are also working on a proprietary plugin with a much fancier user interface through <a href = "https://datamindaudio.ai/">DataMind Audio</a>.  Below is a demo of this plugin, courtesy of <a href = "https://www.eca.ed.ac.uk/profile/dr-martin-parker">Martin Parker</a>, showing how to create live foley of someone walking through mud using The Concatenaton on top of this video <a href = "https://www.youtube.com/watch?v=ZYXzzRb--gI">https://www.youtube.com/watch?v=ZYXzzRb--gI</a> (BASCfilms, dir. 2011. Mud Walking). (<a href = "MudWalkingDemo.mp4">Click here</a> to download the video file of Martin's demo)
+            </p>
+            <video width="80%" controls>
+                <source src="MudWalkingDemo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video> 
+
 
         <HR>
         <h2>Qualitative Analysis</h2>
